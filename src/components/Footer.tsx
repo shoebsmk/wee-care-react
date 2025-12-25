@@ -1,0 +1,60 @@
+import { School, Phone, MapPin, Clock } from 'lucide-react';
+import { schoolInfo } from '../data/schoolData';
+
+const Footer: React.FC = () => {
+    return (
+        <footer id="contact" className="bg-slate-50 pt-24 pb-12 border-t">
+            <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-3 gap-16">
+                <div className="space-y-6">
+                    <div className="flex items-center gap-2">
+                        <div className="bg-orange-500 p-2 rounded-xl">
+                            <School className="text-white" size={24} />
+                        </div>
+                        <span className="text-2xl font-black tracking-tight uppercase">WEE CARE</span>
+                    </div>
+                    <p className="text-slate-500 leading-relaxed font-medium">A loving, caring, and secure pre-primary school in Hyderabad providing quality activity-based learning since 2023.</p>
+                    <div className="flex gap-4">
+                        <a href={`tel:${schoolInfo.phone}`} className="w-12 h-12 bg-white rounded-xl flex items-center justify-center border border-slate-200 text-orange-600 shadow-sm hover:bg-orange-600 hover:text-white transition-all">
+                            <Phone size={24} />
+                        </a>
+                        <a href="#" className="w-12 h-12 bg-white rounded-xl flex items-center justify-center border border-slate-200 text-orange-600 shadow-sm hover:bg-orange-600 hover:text-white transition-all">
+                            <MapPin size={24} />
+                        </a>
+                    </div>
+                </div>
+                <div className="space-y-6">
+                    <h4 className="text-lg font-black text-slate-400 uppercase tracking-widest">Location</h4>
+                    <div className="space-y-4">
+                        <div className="flex gap-4">
+                            <MapPin className="text-orange-600 shrink-0" size={24} />
+                            <span className="text-slate-600 font-bold italic">
+                                {schoolInfo.landmark},<br />
+                                {schoolInfo.area}, {schoolInfo.city}, India
+                            </span>
+                        </div>
+                        <div className="flex gap-4">
+                            <Clock className="text-orange-600 shrink-0" size={24} />
+                            <span className="text-slate-600">{schoolInfo.hours}</span>
+                        </div>
+                        <div className="flex gap-4">
+                            <Phone className="text-orange-600 shrink-0" size={24} />
+                            <span className="text-slate-900 font-black">{schoolInfo.phone}</span>
+                        </div>
+                    </div>
+                </div>
+                <div className="space-y-6">
+                    <h4 className="text-lg font-black text-slate-400 uppercase tracking-widest">Our Philosophy</h4>
+                    <div className="bg-white p-8 rounded-3xl border border-slate-200 text-center">
+                        <p className="text-3xl font-black text-slate-900 italic mb-2">"{schoolInfo.tagline}"</p>
+                        <p className="text-xs font-bold text-slate-400 tracking-tighter uppercase">Spoken English Environment</p>
+                    </div>
+                </div>
+            </div>
+            <div className="mt-16 pt-8 border-t border-slate-200 text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.2em]">
+                &copy; {new Date().getFullYear()} WEE CARE PRE-PRIMARY SCHOOL. ALL RIGHTS RESERVED.
+            </div>
+        </footer>
+    );
+};
+
+export default Footer;
