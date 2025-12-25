@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { School, Phone, Menu, X } from 'lucide-react';
+import { Phone, Menu, X } from 'lucide-react';
 import { schoolInfo, navItems } from '../data/schoolData';
+import logo from '../assets/logo-new.png';
 
 const Navbar: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -9,10 +10,8 @@ const Navbar: React.FC = () => {
         <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-20 items-center">
-                    <div className="flex items-center gap-2">
-                        <div className="bg-orange-500 p-2 rounded-xl">
-                            <School className="text-white" size={24} />
-                        </div>
+                    <div className="flex items-center gap-3">
+                        <img src={logo} alt="Wee Care Logo" className="h-14 w-auto" />
                         <div>
                             <span className="text-2xl font-black text-orange-600 tracking-tight uppercase">{schoolInfo.name}</span>
                             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest -mt-1">{schoolInfo.tagline}</p>

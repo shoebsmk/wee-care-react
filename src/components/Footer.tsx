@@ -1,15 +1,14 @@
-import { School, Phone, MapPin, Clock } from 'lucide-react';
+import { Phone, MapPin, Clock } from 'lucide-react';
 import { schoolInfo } from '../data/schoolData';
+import logo from '../assets/logo-new.png';
 
 const Footer: React.FC = () => {
     return (
         <footer id="contact" className="bg-slate-50 pt-24 pb-12 border-t">
             <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-3 gap-16">
                 <div className="space-y-6">
-                    <div className="flex items-center gap-2">
-                        <div className="bg-orange-500 p-2 rounded-xl">
-                            <School className="text-white" size={24} />
-                        </div>
+                    <div className="flex items-center gap-3">
+                        <img src={logo} alt="Wee Care Logo" className="h-14 w-auto" />
                         <span className="text-2xl font-black tracking-tight uppercase">WEE CARE</span>
                     </div>
                     <p className="text-slate-500 leading-relaxed font-medium">A loving, caring, and secure pre-primary school in Hyderabad providing quality activity-based learning since 2023.</p>
