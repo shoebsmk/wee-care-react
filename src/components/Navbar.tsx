@@ -7,36 +7,59 @@ const Navbar: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
     return (
-        <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between h-20 items-center">
-                    <div className="flex items-center gap-3">
-                        <img src={logo} alt="Wee Care Logo" className="h-14 w-auto" />
-                        <div>
-                            <span className="text-2xl font-black text-orange-600 tracking-tight uppercase">{schoolInfo.name}</span>
-                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest -mt-1">{schoolInfo.tagline}</p>
+        <header className="sticky top-0 z-50">
+            {/* Top Bar - Logo and Enquire */}
+            <div className="bg-white border-b border-slate-100">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex justify-between h-20 items-center">
+                        {/* Logo Section - Left on mobile, centered on desktop */}
+                        <div className="flex items-center gap-3 md:absolute md:left-1/2 md:-translate-x-1/2">
+                            <img src={logo} alt="Wee Care Logo" className="h-14 w-auto" />
+                            <div>
+                                <span className="text-2xl font-black text-teal-700 tracking-tight uppercase">{schoolInfo.name}</span>
+                                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest -mt-1">{schoolInfo.tagline}</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div className="hidden md:flex items-center space-x-8">
-                        {navItems.map((item) => (
-                            <a key={item.name} href={item.href} className="text-sm font-semibold text-slate-600 hover:text-orange-600 transition-colors">
-                                {item.name}
+                        {/* Empty spacer for desktop layout */}
+                        <div className="hidden md:block"></div>
+
+                        {/* Enquire Button - Right side */}
+                        <div className="hidden md:block">
+                            <a href={`tel:${schoolInfo.phone}`} className="bg-gradient-to-r from-teal-600 to-emerald-600 text-white px-6 py-2.5 rounded-lg text-sm font-bold shadow-lg shadow-teal-200 hover:from-teal-700 hover:to-emerald-700 transition-all flex items-center gap-2">
+                                <Phone size={16} /> Enquire Now
                             </a>
-                        ))}
-                        <a href={`tel:${schoolInfo.phone}`} className="bg-orange-600 text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-orange-200 hover:bg-orange-700 transition-all flex items-center gap-2">
-                            <Phone size={16} /> Enquire Now
-                        </a>
-                    </div>
+                        </div>
 
-                    <div className="md:hidden">
-                        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 text-slate-600">
-                            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-                        </button>
+                        {/* Mobile Menu Button */}
+                        <div className="md:hidden">
+                            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 text-slate-600">
+                                {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            {/* Navigation Bar - Teal background */}
+            <nav className="hidden md:block bg-gradient-to-r from-teal-600 to-teal-700">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex justify-center items-center h-12 space-x-10">
+                        {navItems.map((item) => (
+                            <a
+                                key={item.name}
+                                href={item.href}
+                                className="text-sm font-semibold text-white/90 hover:text-white transition-colors relative group"
+                            >
+                                {item.name}
+                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            </nav>
+
+            {/* Mobile Menu */}
             {isMenuOpen && (
                 <div className="md:hidden bg-white border-b border-slate-100 p-4 absolute w-full shadow-lg">
                     {navItems.map((item) => (
@@ -45,13 +68,13 @@ const Navbar: React.FC = () => {
                         </a>
                     ))}
                     <div className="mt-4">
-                        <a href={`tel:${schoolInfo.phone}`} className="flex items-center justify-center gap-2 bg-orange-600 text-white w-full py-4 rounded-2xl font-bold">
+                        <a href={`tel:${schoolInfo.phone}`} className="flex items-center justify-center gap-2 bg-gradient-to-r from-teal-600 to-emerald-600 text-white w-full py-4 rounded-2xl font-bold">
                             <Phone size={20} /> Call Us Now
                         </a>
                     </div>
                 </div>
             )}
-        </nav>
+        </header>
     );
 };
 

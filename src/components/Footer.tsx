@@ -13,10 +13,10 @@ const Footer: React.FC = () => {
                     </div>
                     <p className="text-slate-500 leading-relaxed font-medium">A loving, caring, and secure pre-primary school in Hyderabad providing quality activity-based learning since 2023.</p>
                     <div className="flex gap-4">
-                        <a href={`tel:${schoolInfo.phone}`} className="w-12 h-12 bg-white rounded-xl flex items-center justify-center border border-slate-200 text-orange-600 shadow-sm hover:bg-orange-600 hover:text-white transition-all">
+                        <a href={`tel:${schoolInfo.phone}`} className="w-12 h-12 bg-white rounded-xl flex items-center justify-center border border-slate-200 text-teal-600 shadow-sm hover:bg-gradient-to-r hover:from-teal-600 hover:to-emerald-600 hover:text-white hover:border-transparent transition-all">
                             <Phone size={24} />
                         </a>
-                        <a href="https://www.google.com/maps/place/9F4H%2B43Q+Hyderabad,+Telangana,+India" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white rounded-xl flex items-center justify-center border border-slate-200 text-orange-600 shadow-sm hover:bg-orange-600 hover:text-white transition-all" aria-label="View on Google Maps">
+                        <a href="https://www.google.com/maps/place/9F4H%2B43Q+Hyderabad,+Telangana,+India" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white rounded-xl flex items-center justify-center border border-slate-200 text-teal-600 shadow-sm hover:bg-gradient-to-r hover:from-teal-600 hover:to-emerald-600 hover:text-white hover:border-transparent transition-all" aria-label="View on Google Maps">
                             <MapPin size={24} />
                         </a>
                     </div>
@@ -24,19 +24,19 @@ const Footer: React.FC = () => {
                 <div className="space-y-6">
                     <h4 className="text-lg font-black text-slate-400 uppercase tracking-widest">Location</h4>
                     <div className="space-y-4">
-                        <a href="https://www.google.com/maps/place/9F4H%2B43Q+Hyderabad,+Telangana,+India" target="_blank" rel="noopener noreferrer" className="flex gap-4 hover:text-orange-600 transition-colors">
-                            <MapPin className="text-orange-600 shrink-0" size={24} />
+                        <a href="https://www.google.com/maps/place/9F4H%2B43Q+Hyderabad,+Telangana,+India" target="_blank" rel="noopener noreferrer" className="flex gap-4 hover:text-teal-600 transition-colors">
+                            <MapPin className="text-teal-600 shrink-0" size={24} />
                             <span className="text-slate-600 font-bold italic">
                                 {schoolInfo.landmark},<br />
                                 {schoolInfo.area}, {schoolInfo.city}, India
                             </span>
                         </a>
                         <div className="flex gap-4">
-                            <Clock className="text-orange-600 shrink-0" size={24} />
+                            <Clock className="text-teal-600 shrink-0" size={24} />
                             <span className="text-slate-600">{schoolInfo.hours}</span>
                         </div>
-                        <a href={`tel:${schoolInfo.phone}`} className="flex gap-4 hover:text-orange-600 transition-colors">
-                            <Phone className="text-orange-600 shrink-0" size={24} />
+                        <a href={`tel:${schoolInfo.phone}`} className="flex gap-4 hover:text-teal-600 transition-colors">
+                            <Phone className="text-teal-600 shrink-0" size={24} />
                             <span className="text-slate-900 font-black">{schoolInfo.phone}</span>
                         </a>
                     </div>

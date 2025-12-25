@@ -5,7 +5,7 @@ const SummerCamp: React.FC = () => {
     return (
         <section id="summercamp" className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-4">
-                <div className="bg-gradient-to-r from-sky-400 to-blue-500 rounded-[3rem] p-12 text-white relative overflow-hidden">
+                <div className="bg-gradient-to-r from-teal-500 to-emerald-500 rounded-[3rem] p-12 text-white relative overflow-hidden">
                     <Sun size={140} className="absolute -top-10 -right-10 text-white/20 animate-spin-slow" />
                     <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
                         <div>
@@ -19,7 +19,7 @@ const SummerCamp: React.FC = () => {
                                     <User size={18} /> Ages {schoolInfo.summerCamp.age}
                                 </div>
                             </div>
-                            <button className="bg-white text-blue-600 px-10 py-5 rounded-2xl font-black text-lg shadow-xl">Join the Fun</button>
+                            <button className="bg-white text-teal-600 px-10 py-5 rounded-2xl font-black text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">Join the Fun</button>
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                             {schoolInfo.summerCamp.activities.map((act, i) => (
