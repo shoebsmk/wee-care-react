@@ -1,53 +1,76 @@
 import { Star, CheckCircle } from 'lucide-react';
 import { schoolInfo } from '../data/schoolData';
 import classroomImage from '../assets/clasroom-with-kids.jpeg';
+import heroVideo from '../assets/classroom-video.mp4';
 
 const Hero: React.FC = () => {
     return (
-        <section id="home" className="relative pt-10 pb-20 lg:pt-24 lg:pb-32 bg-white overflow-hidden">
-            <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-orange-100 rounded-full blur-3xl opacity-50"></div>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center lg:text-left">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-8">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 text-orange-700 rounded-full text-sm font-bold border border-orange-100">
-                            <Star size={16} />
-                            <span>Free Admission for Ages {schoolInfo.ageRange}</span>
-                        </div>
-                        <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1]">
-                            Where Your Child <br /><span className="text-orange-600">Learns & Grows</span>
-                        </h1>
-                        <p className="text-xl text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                            {schoolInfo.description}
-                            <br /><span className="font-bold text-orange-600 mt-2 block italic">— {schoolInfo.environment}</span>
-                        </p>
-                        <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                            <button className="w-full sm:w-auto px-8 py-5 bg-orange-600 text-white rounded-2xl font-bold text-lg shadow-2xl hover:bg-orange-700 transition-all">
-                                Get Free Admission
-                            </button>
-                            <div className="flex items-center gap-3 px-6 py-5 bg-white border border-slate-200 rounded-2xl">
-                                <CheckCircle className="text-green-600" size={24} />
-                                <div className="text-left">
-                                    <p className="text-sm font-bold text-slate-900 leading-none">Low Fees</p>
-                                    <p className="text-xs text-slate-500 tracking-tight">Activity Based Learning</p>
-                                </div>
-                            </div>
-                        </div>
+        <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+            {/* Background Video */}
+            <div className="absolute inset-0 z-0">
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    poster={classroomImage}
+                    className="w-full h-full object-cover"
+                >
+                    <source src={heroVideo} type="video/mp4" />
+                    {/* Fallback image if video doesn't load */}
+                    <img
+                        src={classroomImage}
+                        alt="Children learning in classroom"
+                        className="w-full h-full object-cover"
+                    />
+                </video>
+                {/* Dark overlay for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-slate-900/50"></div>
+            </div>
+
+            {/* Content */}
+            <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+                <div className="text-center space-y-5">
+                    {/* Badge */}
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-md text-white rounded-full text-xs font-medium border border-white/20">
+                        <Star size={12} className="text-orange-400" />
+                        <span>Free Admission • Ages {schoolInfo.ageRange}</span>
                     </div>
-                    <div className="relative">
-                        <div className="aspect-square rounded-[3rem] overflow-hidden shadow-2xl relative">
-                            <img
-                                src={classroomImage}
-                                alt="Children learning in classroom at Wee Care"
-                                className="w-full h-full object-cover"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-orange-600/80 to-transparent flex flex-col items-center justify-end text-white p-8 pb-20">
-                                <p className="text-white/90 text-center font-semibold text-lg drop-shadow-md">Safe & secure learning for children aged 1-6 years.</p>
-                            </div>
-                        </div>
-                        <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-3xl shadow-xl border border-slate-50 hidden sm:block">
-                            <p className="text-3xl font-black text-orange-600 leading-none">10</p>
-                            <p className="text-xs font-bold text-slate-500 uppercase tracking-tighter">Students Max / Class</p>
-                        </div>
+
+                    {/* Headline */}
+                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                        Where Your Child{' '}
+                        <span className="text-orange-400">Learns & Grows</span>
+                    </h1>
+
+                    {/* Description */}
+                    <p className="text-sm sm:text-base text-slate-300 max-w-lg mx-auto">
+                        {schoolInfo.environment}
+                    </p>
+
+                    {/* CTA Buttons */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                        <button className="w-full sm:w-auto px-6 py-3 bg-orange-600 text-white rounded-xl font-semibold text-sm shadow-lg hover:bg-orange-500 transition-all">
+                            Get Free Admission
+                        </button>
+                        <button className="w-full sm:w-auto px-6 py-3 bg-white/10 backdrop-blur-md text-white rounded-xl font-semibold text-sm border border-white/20 hover:bg-white/20 transition-all">
+                            Schedule a Visit
+                        </button>
+                    </div>
+
+                    {/* Stats Row */}
+                    <div className="flex flex-wrap items-center justify-center gap-4 pt-3 text-xs sm:text-sm text-white/80">
+                        <span className="flex items-center gap-1.5">
+                            <CheckCircle className="text-green-400" size={14} /> Low Fees
+                        </span>
+                        <span className="text-white/30">•</span>
+                        <span className="flex items-center gap-1.5">
+                            <CheckCircle className="text-green-400" size={14} /> Max 10/Class
+                        </span>
+                        <span className="text-white/30">•</span>
+                        <span className="flex items-center gap-1.5">
+                            <CheckCircle className="text-green-400" size={14} /> Activity Based
+                        </span>
                     </div>
                 </div>
             </div>
