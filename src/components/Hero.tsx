@@ -1,5 +1,6 @@
-import { Star, CheckCircle, Smile } from 'lucide-react';
+import { Star, CheckCircle } from 'lucide-react';
 import { schoolInfo } from '../data/schoolData';
+import classroomImage from '../assets/clasroom-with-kids.jpeg';
 
 const Hero: React.FC = () => {
     return (
@@ -33,10 +34,15 @@ const Hero: React.FC = () => {
                         </div>
                     </div>
                     <div className="relative">
-                        <div className="aspect-square bg-gradient-to-br from-orange-400 to-rose-500 rounded-[3rem] overflow-hidden shadow-2xl flex flex-col items-center justify-center text-white p-12">
-                            <Smile size={100} className="mb-8 opacity-30" />
-                            <h3 className="text-4xl font-black mb-4 text-center">Spoken English Environment</h3>
-                            <p className="text-white/80 text-center font-medium">Safe & secure learning for children aged 1-6 years.</p>
+                        <div className="aspect-square rounded-[3rem] overflow-hidden shadow-2xl relative">
+                            <img
+                                src={classroomImage}
+                                alt="Children learning in classroom at Wee Care"
+                                className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-orange-600/80 to-transparent flex flex-col items-center justify-end text-white p-8 pb-20">
+                                <p className="text-white/90 text-center font-semibold text-lg drop-shadow-md">Safe & secure learning for children aged 1-6 years.</p>
+                            </div>
                         </div>
                         <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-3xl shadow-xl border border-slate-50 hidden sm:block">
                             <p className="text-3xl font-black text-orange-600 leading-none">10</p>

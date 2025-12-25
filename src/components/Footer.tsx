@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
                         <a href={`tel:${schoolInfo.phone}`} className="w-12 h-12 bg-white rounded-xl flex items-center justify-center border border-slate-200 text-orange-600 shadow-sm hover:bg-orange-600 hover:text-white transition-all">
                             <Phone size={24} />
                         </a>
-                        <a href="#" className="w-12 h-12 bg-white rounded-xl flex items-center justify-center border border-slate-200 text-orange-600 shadow-sm hover:bg-orange-600 hover:text-white transition-all">
+                        <a href="https://www.google.com/maps/place/9F4H%2B43Q+Hyderabad,+Telangana,+India" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white rounded-xl flex items-center justify-center border border-slate-200 text-orange-600 shadow-sm hover:bg-orange-600 hover:text-white transition-all" aria-label="View on Google Maps">
                             <MapPin size={24} />
                         </a>
                     </div>
@@ -25,21 +25,21 @@ const Footer: React.FC = () => {
                 <div className="space-y-6">
                     <h4 className="text-lg font-black text-slate-400 uppercase tracking-widest">Location</h4>
                     <div className="space-y-4">
-                        <div className="flex gap-4">
+                        <a href="https://www.google.com/maps/place/9F4H%2B43Q+Hyderabad,+Telangana,+India" target="_blank" rel="noopener noreferrer" className="flex gap-4 hover:text-orange-600 transition-colors">
                             <MapPin className="text-orange-600 shrink-0" size={24} />
                             <span className="text-slate-600 font-bold italic">
                                 {schoolInfo.landmark},<br />
                                 {schoolInfo.area}, {schoolInfo.city}, India
                             </span>
-                        </div>
+                        </a>
                         <div className="flex gap-4">
                             <Clock className="text-orange-600 shrink-0" size={24} />
                             <span className="text-slate-600">{schoolInfo.hours}</span>
                         </div>
-                        <div className="flex gap-4">
+                        <a href={`tel:${schoolInfo.phone}`} className="flex gap-4 hover:text-orange-600 transition-colors">
                             <Phone className="text-orange-600 shrink-0" size={24} />
                             <span className="text-slate-900 font-black">{schoolInfo.phone}</span>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div className="space-y-6">

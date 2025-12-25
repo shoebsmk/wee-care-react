@@ -5,6 +5,8 @@ import Programs from './components/Programs'
 import Curriculum from './components/Curriculum'
 import SummerCamp from './components/SummerCamp'
 import Footer from './components/Footer'
+import Gallery from './components/Gallery'
+import WhatsAppButton from './components/WhatsAppButton'
 
 const App: React.FC = () => {
     return (
@@ -14,8 +16,10 @@ const App: React.FC = () => {
             <About />
             <Programs />
             <Curriculum />
+            <Gallery />
             <SummerCamp />
             <Footer />
+            <WhatsAppButton />
         </div>
     )
 }
