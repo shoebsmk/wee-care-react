@@ -1,5 +1,6 @@
 import { Clock } from 'lucide-react';
 import { schoolInfo } from '../data/schoolData';
+import useRevealOnScroll from '../hooks/useRevealOnScroll';
 
 const programImages: Record<string, string> = {
     Daycare: 'https://images.unsplash.com/photo-1504484656217-38f8ffc617f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzY2NjQ4OTUwfA&ixlib=rb-4.1.0&q=80&w=1080',
@@ -9,8 +10,14 @@ const programImages: Record<string, string> = {
 };
 
 const Programs: React.FC = () => {
+    const { ref: sectionRef, isVisible } = useRevealOnScroll<HTMLElement>();
+
     return (
-        <section id="programs" className="py-24 bg-orange-200 relative overflow-hidden">
+        <section
+            id="programs"
+            ref={sectionRef}
+            className={`py-24 bg-orange-200 relative overflow-hidden reveal-on-scroll ${isVisible ? 'is-visible' : ''}`}
+        >
             {/* Decorative Elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-orange-300/30 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-yellow-300/20 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2 pointer-events-none"></div>

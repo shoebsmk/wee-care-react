@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { Camera, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import useRevealOnScroll from '../hooks/useRevealOnScroll';
 
 // Import gallery images
 import aaya from '../assets/aaya.jpeg';
@@ -30,6 +31,7 @@ const Gallery: React.FC = () => {
     const [lightboxOpen, setLightboxOpen] = useState<boolean>(false);
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const carouselRef = useRef<HTMLDivElement | null>(null);
+    const { ref: sectionRef, isVisible } = useRevealOnScroll<HTMLElement>();
 
     const openLightbox = (index: number) => {
         setCurrentIndex(index);
@@ -42,7 +44,11 @@ const Gallery: React.FC = () => {
     const goPrev = () => setCurrentIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
 
     return (
-        <section id="gallery" className="py-24 bg-slate-50">
+        <section
+            id="gallery"
+            ref={sectionRef}
+            className={`py-24 bg-slate-50 reveal-on-scroll ${isVisible ? 'is-visible' : ''}`}
+        >
             <div className="max-w-6xl mx-auto px-4">
                 <div className="text-center mb-16">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-50 text-teal-600 rounded-full text-sm font-bold mb-4">
@@ -61,12 +67,12 @@ const Gallery: React.FC = () => {
                             <button
                                 key={index}
                                 onClick={() => openLightbox(index)}
-                                className="group relative snap-start min-w-[280px] sm:min-w-[360px] md:min-w-[440px] aspect-[5/4] rounded-[2.5rem] border border-white/50 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                                className="group relative snap-start min-w-[280px] sm:min-w-[360px] md:min-w-[440px] aspect-[5/4] rounded-[2.5rem] border border-white/50 hover:-translate-y-1 hover:shadow-md transition-all duration-200 ease-out overflow-hidden"
                             >
                                 <img
                                     src={image.src}
                                     alt={image.alt}
-                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent"></div>
                                 <div className="relative z-10 h-full flex items-end p-4">
@@ -80,10 +86,10 @@ const Gallery: React.FC = () => {
 
             {/* Lightbox Modal */}
             {lightboxOpen && (
-                <div className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4">
+                <div className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 animate-fade-in">
                     <button
                         onClick={closeLightbox}
-                        className="absolute top-6 right-6 text-white/80 hover:text-white p-2 z-10"
+                        className="absolute top-6 right-6 text-white/80 hover:text-white p-2 z-10 transition-transform duration-150 hover:scale-105 active:scale-95"
                         aria-label="Close gallery"
                     >
                         <X size={32} />
@@ -91,13 +97,13 @@ const Gallery: React.FC = () => {
 
                     <button
                         onClick={goPrev}
-                        className="absolute left-4 md:left-8 text-white/80 hover:text-white p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
+                        className="absolute left-4 md:left-8 text-white/80 hover:text-white p-2 bg-white/10 rounded-full hover:bg-white/20 transition-all duration-150 hover:scale-105 active:scale-95"
                         aria-label="Previous image"
                     >
                         <ChevronLeft size={32} />
                     </button>
 
-                    <div className="max-w-4xl max-h-[80vh] flex flex-col items-center">
+                    <div className="max-w-4xl max-h-[80vh] flex flex-col items-center animate-pop-in">
                         <img
                             src={galleryImages[currentIndex].src}
                             alt={galleryImages[currentIndex].alt}
@@ -109,7 +115,7 @@ const Gallery: React.FC = () => {
 
                     <button
                         onClick={goNext}
-                        className="absolute right-4 md:right-8 text-white/80 hover:text-white p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
+                        className="absolute right-4 md:right-8 text-white/80 hover:text-white p-2 bg-white/10 rounded-full hover:bg-white/20 transition-all duration-150 hover:scale-105 active:scale-95"
                         aria-label="Next image"
                     >
                         <ChevronRight size={32} />

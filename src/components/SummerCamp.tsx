@@ -1,9 +1,16 @@
 import { Sun, Calendar, User, CheckCircle } from 'lucide-react';
 import { schoolInfo } from '../data/schoolData';
+import useRevealOnScroll from '../hooks/useRevealOnScroll';
 
 const SummerCamp: React.FC = () => {
+    const { ref: sectionRef, isVisible } = useRevealOnScroll<HTMLElement>();
+
     return (
-        <section id="summercamp" className="py-24 bg-white">
+        <section
+            id="summercamp"
+            ref={sectionRef}
+            className={`py-24 bg-white reveal-on-scroll ${isVisible ? 'is-visible' : ''}`}
+        >
             <div className="max-w-6xl mx-auto px-4">
                 <div className="bg-gradient-to-r from-teal-500 to-emerald-500 rounded-[3rem] p-12 text-white relative overflow-hidden">
                     <Sun size={140} className="absolute -top-10 -right-10 text-white/20 animate-spin-slow" />

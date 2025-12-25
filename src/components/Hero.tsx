@@ -2,10 +2,17 @@ import { Star, CheckCircle } from 'lucide-react';
 import { schoolInfo } from '../data/schoolData';
 import classroomImage from '../assets/clasroom-with-kids.jpeg';
 import heroVideo from '../assets/classroom-video.mp4';
+import useRevealOnScroll from '../hooks/useRevealOnScroll';
 
 const Hero: React.FC = () => {
+    const { ref: sectionRef, isVisible } = useRevealOnScroll<HTMLElement>();
+
     return (
-        <section id="home" className="relative min-h-[85vh] flex items-center overflow-hidden">
+        <section
+            id="home"
+            ref={sectionRef}
+            className={`relative min-h-[85vh] flex items-center overflow-hidden reveal-on-scroll ${isVisible ? 'is-visible' : ''}`}
+        >
             {/* Background Video */}
             <div className="absolute inset-0 z-0">
                 <video

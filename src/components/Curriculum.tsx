@@ -1,11 +1,18 @@
 import { Check } from 'lucide-react';
 import { schoolInfo } from '../data/schoolData';
+import useRevealOnScroll from '../hooks/useRevealOnScroll';
 
 const extraActivities: string[] = ["Play Blocks", "Cars", "Jigsaws", "Sliding Games", "Arts & Crafts", "Kids Shows on TV"];
 
 const Curriculum: React.FC = () => {
+    const { ref: sectionRef, isVisible } = useRevealOnScroll<HTMLElement>();
+
     return (
-        <section id="curriculum" className="py-24 bg-slate-900 text-white">
+        <section
+            id="curriculum"
+            ref={sectionRef}
+            className={`py-24 bg-slate-900 text-white reveal-on-scroll ${isVisible ? 'is-visible' : ''}`}
+        >
             <div className="max-w-6xl mx-auto px-4">
                 <div className="text-center mb-16">
                     <h2 className="text-sm font-bold text-emerald-400 uppercase tracking-widest mb-4">What We Teach</h2>

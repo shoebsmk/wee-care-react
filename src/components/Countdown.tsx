@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Calendar } from 'lucide-react';
+import useRevealOnScroll from '../hooks/useRevealOnScroll';
 
 const Countdown: React.FC = () => {
     // Target date: March 1, 2026 (approximate start of next session admissions)
     const targetDate = new Date('2026-03-01T00:00:00').getTime();
+    const { ref: sectionRef, isVisible } = useRevealOnScroll<HTMLElement>();
     const [timeLeft, setTimeLeft] = useState<{
         days: number;
         hours: number;
@@ -39,7 +41,10 @@ const Countdown: React.FC = () => {
     ];
 
     return (
-        <section className="py-12 bg-teal-900 border-y border-teal-800">
+        <section
+            ref={sectionRef}
+            className={`py-12 bg-teal-900 border-y border-teal-800 reveal-on-scroll ${isVisible ? 'is-visible' : ''}`}
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                     <div className="text-center md:text-left space-y-2">

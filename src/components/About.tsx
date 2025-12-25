@@ -1,8 +1,15 @@
 import React from 'react';
+import useRevealOnScroll from '../hooks/useRevealOnScroll';
 
 const About: React.FC = () => {
+    const { ref: sectionRef, isVisible } = useRevealOnScroll<HTMLElement>();
+
     return (
-        <section id="about" className="py-24 bg-teal-600 relative overflow-hidden">
+        <section
+            id="about"
+            ref={sectionRef}
+            className={`py-24 bg-teal-600 relative overflow-hidden reveal-on-scroll ${isVisible ? 'is-visible' : ''}`}
+        >
             {/* Decorative background elements */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-teal-500/30 rounded-full blur-3xl"></div>
