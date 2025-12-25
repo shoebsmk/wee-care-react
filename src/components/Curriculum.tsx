@@ -6,7 +6,7 @@ const extraActivities: string[] = ["Play Blocks", "Cars", "Jigsaws", "Sliding Ga
 const Curriculum: React.FC = () => {
     return (
         <section id="curriculum" className="py-24 bg-slate-900 text-white">
-            <div className="max-w-7xl mx-auto px-4">
+            <div className="max-w-6xl mx-auto px-4">
                 <div className="text-center mb-16">
                     <h2 className="text-sm font-bold text-emerald-400 uppercase tracking-widest mb-4">What We Teach</h2>
                     <h3 className="text-4xl font-black">Activity Based Learning</h3>

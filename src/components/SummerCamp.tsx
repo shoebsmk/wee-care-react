@@ -4,7 +4,7 @@ import { schoolInfo } from '../data/schoolData';
 const SummerCamp: React.FC = () => {
     return (
         <section id="summercamp" className="py-24 bg-white">
-            <div className="max-w-7xl mx-auto px-4">
+            <div className="max-w-6xl mx-auto px-4">
                 <div className="bg-gradient-to-r from-teal-500 to-emerald-500 rounded-[3rem] p-12 text-white relative overflow-hidden">
                     <Sun size={140} className="absolute -top-10 -right-10 text-white/20 animate-spin-slow" />
                     <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">

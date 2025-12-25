@@ -5,7 +5,7 @@ import logo from '../assets/logo-new.png';
 const Footer: React.FC = () => {
     return (
         <footer id="contact" className="bg-slate-50 pt-24 pb-12 border-t">
-            <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-3 gap-16">
+            <div className="max-w-6xl mx-auto px-4 grid lg:grid-cols-3 gap-16">
                 <div className="space-y-6">
                     <div className="flex items-center gap-3">
                         <img src={logo} alt="Wee Care Logo" className="h-14 w-auto" />

@@ -122,3 +122,13 @@ a,
 button {
   transition: all 0.2s ease-in-out;
 }
+
+/* Hide scrollbars while keeping scroll enabled */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Camera, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Import gallery images
+import aaya from '../assets/aaya.jpeg';
 import classroomEmpty from '../assets/classroom-empty.jpeg';
+import classroomWithKids from '../assets/clasroom-with-kids.jpeg';
 import kidsPlaying from '../assets/kids-playing.jpeg';
 import lobby from '../assets/lobby.jpeg';
 import lobby2 from '../assets/lobby-2.jpeg';
+import teachersIllustration from '../assets/teachers_illustration.png';
 
 interface GalleryImage {
     src: string;
@@ -14,15 +17,19 @@ interface GalleryImage {
 }
 
 const galleryImages: GalleryImage[] = [
-    { src: classroomEmpty, alt: 'Classroom', caption: 'Our Colorful Classroom' },
+    { src: classroomWithKids, alt: 'Classroom With Kids', caption: 'Learning With Friends' },
     { src: kidsPlaying, alt: 'Kids Playing', caption: 'Fun Learning Activities' },
+    { src: aaya, alt: 'Caring Support', caption: 'Dedicated Aaya Support' },
+    { src: classroomEmpty, alt: 'Classroom', caption: 'Our Colorful Classroom' },
     { src: lobby, alt: 'School Lobby', caption: 'Welcoming School Entrance' },
     { src: lobby2, alt: 'Reception Area', caption: 'Reception & Waiting Area' },
+    { src: teachersIllustration, alt: 'Teachers', caption: 'Qualified Teachers' },
 ];
 
 const Gallery: React.FC = () => {
     const [lightboxOpen, setLightboxOpen] = useState<boolean>(false);
     const [currentIndex, setCurrentIndex] = useState<number>(0);
+    const carouselRef = useRef<HTMLDivElement | null>(null);
 
     const openLightbox = (index: number) => {
         setCurrentIndex(index);
@@ -36,7 +43,7 @@ const Gallery: React.FC = () => {
 
     return (
         <section id="gallery" className="py-24 bg-slate-50">
-            <div className="max-w-7xl mx-auto px-4">
+            <div className="max-w-6xl mx-auto px-4">
                 <div className="text-center mb-16">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-50 text-teal-600 rounded-full text-sm font-bold mb-4">
                         <Camera size={16} />
@@ -45,23 +52,29 @@ const Gallery: React.FC = () => {
                     <h2 className="text-4xl font-black text-slate-900">A Glimpse Inside Wee Care</h2>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {galleryImages.map((image, index) => (
-                        <button
-                            key={index}
-                            onClick={() => openLightbox(index)}
-                            className="group relative aspect-square rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
-                        >
-                            <img
-                                src={image.src}
-                                alt={image.alt}
-                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                                <p className="text-white font-bold text-sm">{image.caption}</p>
-                            </div>
-                        </button>
-                    ))}
+                <div className="relative">
+                    <div
+                        ref={carouselRef}
+                        className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 no-scrollbar"
+                    >
+                        {galleryImages.map((image, index) => (
+                            <button
+                                key={index}
+                                onClick={() => openLightbox(index)}
+                                className="group relative snap-start min-w-[280px] sm:min-w-[360px] md:min-w-[440px] aspect-[5/4] rounded-[2.5rem] border border-white/50 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                            >
+                                <img
+                                    src={image.src}
+                                    alt={image.alt}
+                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent"></div>
+                                <div className="relative z-10 h-full flex items-end p-4">
+                                    <p className="text-white font-black text-base md:text-lg drop-shadow-sm">{image.caption}</p>
+                                </div>
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </div>
 
