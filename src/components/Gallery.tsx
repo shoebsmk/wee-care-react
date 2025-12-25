@@ -47,27 +47,29 @@ const Gallery: React.FC = () => {
         <section
             id="gallery"
             ref={sectionRef}
-            className={`py-24 bg-slate-50 reveal-on-scroll ${isVisible ? 'is-visible' : ''}`}
+            className={`py-24 bg-gradient-to-b from-amber-50 via-orange-50 to-stone-50 reveal-on-scroll ${isVisible ? 'is-visible' : ''}`}
         >
             <div className="max-w-6xl mx-auto px-4">
-                <div className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-50 text-teal-600 rounded-full text-sm font-bold mb-4">
-                        <Camera size={16} />
-                        <span>Photo Gallery</span>
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+                    <div>
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-50 text-teal-600 rounded-full text-sm font-bold mb-4">
+                            <Camera size={16} />
+                            <span>Photo Gallery</span>
+                        </div>
+                        <h2 className="text-4xl md:text-5xl font-black text-slate-900">A Glimpse Inside Wee Care</h2>
                     </div>
-                    <h2 className="text-4xl font-black text-slate-900">A Glimpse Inside Wee Care</h2>
                 </div>
 
                 <div className="relative">
                     <div
                         ref={carouselRef}
-                        className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 no-scrollbar"
+                        className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 no-scrollbar"
                     >
                         {galleryImages.map((image, index) => (
                             <button
                                 key={index}
                                 onClick={() => openLightbox(index)}
-                                className="group relative snap-start min-w-[280px] sm:min-w-[360px] md:min-w-[440px] aspect-[5/4] rounded-[2.5rem] border border-white/50 hover:-translate-y-1 hover:shadow-md transition-all duration-200 ease-out overflow-hidden"
+                                className="group relative snap-start min-w-[320px] sm:min-w-[420px] md:min-w-[520px] aspect-[5/4] rounded-[2rem] border border-white/60 shadow-sm hover:shadow-md transition-all duration-200 ease-out overflow-hidden"
                             >
                                 <img
                                     src={image.src}
@@ -75,7 +77,7 @@ const Gallery: React.FC = () => {
                                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent"></div>
-                                <div className="relative z-10 h-full flex items-end p-4">
+                                <div className="relative z-10 h-full flex items-end justify-center p-4 text-center">
                                     <p className="text-white font-black text-base md:text-lg drop-shadow-sm">{image.caption}</p>
                                 </div>
                             </button>
