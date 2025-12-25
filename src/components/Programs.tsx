@@ -3,7 +3,7 @@ import { schoolInfo } from '../data/schoolData';
 
 const Programs: React.FC = () => {
     return (
-        <section id="programs" className="py-24 bg-white">
+        <section id="programs" className="py-24 bg-orange-200">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
                     <div>
@@ -16,7 +16,7 @@ const Programs: React.FC = () => {
                 </div>
                 <div className="grid md:grid-cols-4 gap-6">
                     {schoolInfo.programs.map((prog, i) => (
-                        <div key={i} className="bg-slate-50 rounded-[2rem] p-8 border border-slate-100 text-center hover:border-teal-300 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div key={i} className="bg-white rounded-[2rem] p-8 border border-slate-100 text-center hover:border-teal-300 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                             <div className="w-14 h-14 bg-gradient-to-br from-teal-600 to-emerald-600 text-white rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                                 <span className="text-xl font-black">{prog.name[0]}</span>
                             </div>

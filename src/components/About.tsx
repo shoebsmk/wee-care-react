@@ -2,10 +2,10 @@ import { Users, Heart, ShieldCheck } from 'lucide-react';
 
 const About: React.FC = () => {
     return (
-        <section id="about" className="py-24 bg-slate-50">
+        <section id="about" className="py-24 bg-teal-600">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 className="text-sm font-bold text-teal-600 uppercase tracking-widest mb-4">Why Parents Choose Wee Care</h2>
-                <h3 className="text-4xl font-black text-slate-900 mb-16">Dedicated Nurturing Support</h3>
+                <h3 className="text-4xl font-black text-white mb-16">Dedicated Nurturing Support</h3>
                 <div className="grid md:grid-cols-3 gap-8">
                     <div className="bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 hover:border-teal-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                         <div className="w-16 h-16 bg-gradient-to-br from-teal-50 to-emerald-50 text-teal-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-sm">
