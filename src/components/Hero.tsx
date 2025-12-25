@@ -48,7 +48,7 @@ const Hero: React.FC = () => {
 
                     {/* Tagline */}
                     <p className="text-lg text-white/80 font-medium">
-                        {schoolInfo.tagline} — Free Admissions Now Open!
+                        Free Admissions Now Open!
                     </p>
 
                     {/* CTA Button */}
