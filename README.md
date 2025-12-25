@@ -53,3 +53,5 @@ The development server runs on `http://localhost:5173` by default.
 ## 📄 License
 
 MIT
+
+Meet Our Team:

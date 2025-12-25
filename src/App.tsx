@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import Countdown from './components/Countdown'
 import About from './components/About'
 import Programs from './components/Programs'
 import Curriculum from './components/Curriculum'
@@ -13,6 +14,7 @@ const App: React.FC = () => {
         <div className="min-h-screen bg-slate-50 text-slate-900 overflow-x-hidden">
             <Navbar />
             <Hero />
+            <Countdown />
             <About />
             <Programs />
             <Curriculum />

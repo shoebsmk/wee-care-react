@@ -47,13 +47,13 @@ const Hero: React.FC = () => {
                     </h1>
 
                     {/* Tagline */}
-                    <p className="text-lg text-white/80 font-medium">
-                        Free Admissions Now Open!
+                    <p className="text-xl font-black italic tracking-wide animate-shimmer-text">
+                        Free Admissions Open!
                     </p>
 
                     {/* CTA Button */}
                     <div className="pt-2">
-                        <button className="px-8 py-4 bg-gradient-to-r from-teal-500 to-emerald-500 text-white rounded-lg font-bold text-base shadow-xl shadow-teal-500/30 hover:from-teal-400 hover:to-emerald-400 hover:-translate-y-0.5 transition-all duration-300">
+                        <button className="px-8 py-4 bg-gradient-to-r from-teal-500 to-emerald-500 text-white rounded-lg font-bold text-base shadow-lg shadow-teal-500/15 hover:from-teal-400 hover:to-emerald-400 hover:-translate-y-0.5 transition-all duration-300">
                             Apply Now
                         </button>
                     </div>
