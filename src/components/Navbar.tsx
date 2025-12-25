@@ -11,13 +11,13 @@ const Navbar: React.FC = () => {
             {/* Top Bar - Logo and Enquire */}
             <div className="bg-white border-b border-slate-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between h-20 items-center">
+                    <div className="flex justify-between h-24 items-center">
                         {/* Logo Section - Left on mobile, centered on desktop */}
                         <div className="flex items-center gap-3 md:absolute md:left-1/2 md:-translate-x-1/2">
-                            <img src={logo} alt="Wee Care Logo" className="h-14 w-auto" />
-                            <div>
-                                <span className="text-2xl font-black text-teal-700 tracking-tight uppercase">{schoolInfo.name}</span>
-                                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest -mt-1">{schoolInfo.tagline}</p>
+                            <img src={logo} alt="Wee Care Logo" className="h-18 w-auto" />
+                            <div className="text-center ">
+                                <span className="text-3xl font-black text-teal-700 tracking-tight capitalize font-comic ">{schoolInfo.name}</span>
+                                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest -mt-1">{schoolInfo.tagline}</p>
                             </div>
                         </div>
 

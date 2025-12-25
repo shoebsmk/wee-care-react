@@ -7,19 +7,11 @@ const Footer: React.FC = () => {
         <footer id="contact" className="bg-slate-50 pt-24 pb-12 border-t">
             <div className="max-w-6xl mx-auto px-4 grid lg:grid-cols-3 gap-16">
                 <div className="space-y-6">
-                    <div className="flex items-center gap-3">
-                        <img src={logo} alt="Wee Care Logo" className="h-14 w-auto" />
-                        <span className="text-2xl font-black tracking-tight uppercase">WEE CARE</span>
+                    <div className="flex items-center gap-4">
+                        <img src={logo} alt="Wee Care Logo" className="h-30 w-auto" />
+                        <span className="text-3xl font-black tracking-tight capitalize text-teal-800/90 font-comic">{schoolInfo.name}</span>
                     </div>
                     <p className="text-slate-500 leading-relaxed font-medium">A loving, caring, and secure pre-primary school in Hyderabad providing quality activity-based learning since 2023.</p>
-                    <div className="flex gap-4">
-                        <a href={`tel:${schoolInfo.phone}`} className="w-12 h-12 bg-white rounded-xl flex items-center justify-center border border-slate-200 text-teal-600 shadow-sm hover:bg-gradient-to-r hover:from-teal-600 hover:to-emerald-600 hover:text-white hover:border-transparent transition-all">
-                            <Phone size={24} />
-                        </a>
-                        <a href="https://www.google.com/maps/place/9F4H%2B43Q+Hyderabad,+Telangana,+India" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white rounded-xl flex items-center justify-center border border-slate-200 text-teal-600 shadow-sm hover:bg-gradient-to-r hover:from-teal-600 hover:to-emerald-600 hover:text-white hover:border-transparent transition-all" aria-label="View on Google Maps">
-                            <MapPin size={24} />
-                        </a>
-                    </div>
                 </div>
                 <div className="space-y-6">
                     <h4 className="text-lg font-black text-slate-400 uppercase tracking-widest">Location</h4>

@@ -135,6 +135,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Logo font override */
+.font-comic {
+  font-family: "Comic Sans MS", cursive;
+  font-weight: 700;
+  text-shadow:
+    0.5px 0 0 currentColor,
+   -0.5px 0 0 currentColor;
+}
+
 /* Glass morphism effects */
 .glass {
   background: rgba(255, 255, 255, 0.85);
